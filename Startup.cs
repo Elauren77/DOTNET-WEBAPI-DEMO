@@ -33,7 +33,6 @@ namespace App
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "App", Version = "v1" });
             });
             services.AddDbContext<DBInteractor>();
-            services.AddScoped<StudentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
