@@ -10,13 +10,11 @@ namespace App.Controllers
     {
         private readonly ILogger<StudentController> _logger;
         private readonly DBInteractor _db;
-        private readonly StudentService _studentService;
 
-        public StudentController(ILogger<StudentController> logger, DBInteractor db, StudentService studentService)
+        public StudentController(ILogger<StudentController> logger, DBInteractor db)
         {
             _logger = logger;
             _db = db;
-            _studentService = studentService;
         }
 
         [HttpGet]
