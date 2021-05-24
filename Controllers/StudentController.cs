@@ -22,70 +22,7 @@ namespace App.Controllers
         [HttpGet]
         public IActionResult GetStudents()
         {
-            try
-            {
-                return base.Ok(_studentService.GetStudents());
-            }
-            catch (Exception e)
-            {
-                return base.Problem(e.ToString());
-            }
-
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetStudentByID(int id)
-        {
-            try
-            {
-                return base.Ok(_studentService.GetStudentById(id));
-            }
-            catch (Exception e)
-            {
-                return base.Problem(e.ToString());
-            }
-        }
-
-        [HttpPost]
-        public IActionResult AddStudent([FromBody] StudentsInfo student)
-        {
-            try
-            {
-                _studentService.AddStudent(student);
-                return base.Ok("Student Added");
-            }
-            catch (Exception e)
-            {
-                return base.Problem(e.ToString());
-            }
-        }
-
-        [HttpPut]
-        public IActionResult UpdateStudent([FromBody] StudentsInfo student)
-        {
-            try
-            {
-                _studentService.UpdateStudent(student);
-                return base.Ok("Student Updated");
-            }
-            catch (Exception e)
-            {
-                return base.Problem(e.ToString());
-            }
-        }
-
-        [HttpDelete]
-        public IActionResult RemoveStudentByID([FromBody] StudentsInfo student)
-        {
-            try
-            {
-                _studentService.DeleteStudent(student);
-                return base.Ok("Student Removed");
-            }
-            catch (Exception e)
-            {
-                return base.Problem(e.ToString());
-            }
+            return base.Ok();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace App
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-            .UseSqlite(@"Data Source=Students.db;");
+            .UseSqlite(@"Data Source=students.db;");
         }
         public DbSet<StudentsInfo> StudentsInfo { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
