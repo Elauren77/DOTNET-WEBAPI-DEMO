@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using App.Models;
 
-namespace App
+namespace App.Data
 {
-    public class DBInteractor : DbContext
+    public class DataContext : DbContext
     {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

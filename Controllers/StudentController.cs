@@ -1,6 +1,6 @@
-using System; 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using App.Data;
 
 namespace App.Controllers
 {
@@ -9,9 +9,9 @@ namespace App.Controllers
     public class StudentController : ControllerBase
     {
         private readonly ILogger<StudentController> _logger;
-        private readonly DBInteractor _db;
+        private readonly DataContext _db;
 
-        public StudentController(ILogger<StudentController> logger, DBInteractor db)
+        public StudentController(ILogger<StudentController> logger, DataContext db)
         {
             _logger = logger;
             _db = db;
