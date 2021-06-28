@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using App.Data;
+using System.Linq;
+using App.Models;
+
+
 
 namespace App.Controllers
 {
@@ -20,7 +24,40 @@ namespace App.Controllers
         [HttpGet]
         public IActionResult GetStudents()
         {
-            return base.Ok();
+            return base.Ok(_db.StudentsInfo);
+
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetStudentById(int id )
+        {
+            return base.Ok(_db.StudentsInfo.FirstOrDefault(s => s.Id == id));
+
+        }
+        [HttpPost]
+        public IActionResult AddStudent([FromBody] StudentsInfo student)
+        {
+            _db.StudentsInfo.Add(student);
+            _db.SaveChanges();
+            return base.Ok("Student Added");
+
+        }
+        [HttpPut]
+        public IActionResult UpdateStudent([FromBody] StudentsInfo student)
+        {
+            _db.StudentsInfo.Update(student);
+            _db.SaveChanges();
+            return base.Ok("Student Updated");
+
+        }
+        [HttpDelete]
+        public IActionResult RemoveStudentByID([FromBody] StudentsInfo student)
+        {
+            _db.Attach(student);
+            _db.StudentsInfo.Remove(student);
+            _db.SaveChanges();
+            return base.Ok("Student Removed");
+
         }
     }
 }
